@@ -17,7 +17,14 @@ export const PostItem = ({ title, date, excerpt, slug, image, postItemHeadingLev
                 className='flex flex-col overflow-hidden rounded-3xl  bg-slate-600 hover:bg-slate-700 focus:bg-slate-700'
                 href={`/posts/${slug}`}
             >
-                <Image className='w-full' src={image} alt={title} width={300} height={200} layout='responsive' />
+                <Image
+                    className='w-full'
+                    src={`/images/posts/${slug}/${image}`}
+                    alt={title}
+                    width={300}
+                    height={200}
+                    layout='responsive'
+                />
 
                 <div className='p-3 text-center'>
                     {postItemHeadingLevel === 'h2' ? (

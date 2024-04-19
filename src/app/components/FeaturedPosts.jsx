@@ -5,38 +5,38 @@ export const FeaturedPosts = () => {
         {
             slug: 'post-1',
             title: 'Title of post 1',
-            date: new Date('2023-04-15'),
+            date: '2023-04-15',
             excerpt: 'Descitpion of post long long long long 1',
-            image: '/images/posts/nextjs.png'
+            image: 'nextjs.png'
         },
         {
             slug: 'post-2',
             title: 'Title of post 2',
-            date: new Date('2023-04-16'),
+            date: '2023-04-16',
             excerpt: 'Descitpion of post long long long long 2',
-            image: '/images/posts/nextjs.png'
+            image: 'nextjs.png'
         },
         {
             slug: 'post-3',
             title: 'Title of post 3',
-            date: new Date('2023-04-17'),
+            date: '2023-04-17',
             excerpt: 'Descitpion of post long long long long 3',
-            image: '/images/posts/nextjs.png'
+            image: 'nextjs.png'
         },
 
         {
             slug: 'post-4',
             title: 'Title of post 4',
-            date: new Date('2023-04-18'),
+            date: '2023-04-18',
             excerpt: 'Descitpion of post long long long long 4',
-            image: '/images/posts/nextjs.png'
+            image: 'nextjs.png'
         },
         {
             slug: 'post-5',
             title: 'Title of post 5',
-            date: new Date('2023-04-19'),
+            date: '2023-04-19',
             excerpt: 'Descitpion of post long long long long 5',
-            image: '/images/posts/nextjs.png'
+            image: 'nextjs.png'
         }
     ];
 

@@ -1,7 +1,9 @@
-export default function SpecificPostPage({ params }) {
+import { PostDetails } from '../components/PostDetails/PostDetails';
+
+export default function SpecificPostPage() {
     return (
-        <main>
-            <h1>Param name is {params.slug}</h1>
+        <main className='flex justify-center mt-10'>
+            <PostDetails />
         </main>
     );
 }
