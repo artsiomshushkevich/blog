@@ -1,13 +1,15 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
-export const PostItem = ({ title, date, excerpt, slug, image }) => {
+export const PostItem = ({ title, date, excerpt, slug, image, postItemHeadingLevel }) => {
     const formattedDate = date.toLocaleString('en-US', {
         weekday: 'long',
         year: 'numeric',
         month: 'long',
         day: 'numeric'
     });
+
+    const headingClass = 'font-serif font-semibold mt-3 mb-2 text-2xl';
 
     return (
         <li>
@@ -18,7 +20,11 @@ export const PostItem = ({ title, date, excerpt, slug, image }) => {
                 <Image className='w-full' src={image} alt={title} width={300} height={200} layout='responsive' />
 
                 <div className='p-3 text-center'>
-                    <h3 className='font-serif font-semibold mt-3 mb-2 text-2xl'>{title}</h3>
+                    {postItemHeadingLevel === 'h2' ? (
+                        <h2 className={headingClass}>{title}</h2>
+                    ) : (
+                        <h3 className={headingClass}>{title}</h3>
+                    )}
                     <time className='text-sm italic text-gray-300'>{formattedDate}</time>
                     <p className='mt-2'>{excerpt}</p>
                 </div>
