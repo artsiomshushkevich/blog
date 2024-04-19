@@ -10,8 +10,8 @@ export const Hero = () => {
                 width={300}
                 height={300}
             />
-            <h1 className='my-2 text-center text-3xl font-serif'>Artsiom Shushkevich</h1>
-            <p className='my-3 text-center text-base'>
+            <h1 className='my-2 text-center text-4xl font-serif font-semibold'>Artsiom Shushkevich</h1>
+            <p className='my-3 text-center text-xl'>
                 Experienced Front-end developer passionate about learning new things.
             </p>
         </section>
