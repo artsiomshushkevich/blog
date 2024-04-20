@@ -1,15 +1,9 @@
 import Image from 'next/image';
 import ReactMarkdown from 'react-markdown';
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+import { atomDark } from 'react-syntax-highlighter/dist/esm/styles/prism';
 
-export const PostDetails = () => {
-    const post = {
-        slug: 'post-1',
-        title: 'Title of post 1',
-        date: '2023-04-15',
-        content: '# some content',
-        image: 'nextjs.png'
-    };
-
+export const PostDetails = ({ post }) => {
     return (
         <article className='w-full max-w-screen-lg p-10 rounded-lg bg-slate-500'>
             <header className='flex justify-between'>
@@ -20,7 +14,30 @@ export const PostDetails = () => {
 
                 <Image src={`/images/posts/${post.slug}/${post.image}`} alt={post.title} width={300} height={200} />
             </header>
-            <ReactMarkdown>{post.content}</ReactMarkdown>
+            <ReactMarkdown
+                urlTransform={url => (url.startsWith('http') ? url : `/images/posts/${post.slug}/${url}`)}
+                components={{
+                    img(props) {
+                        return <Image {...props} alt={props.alt} width={300} height={200} />;
+                    },
+                    code(props) {
+                        const { children, className, node, ...rest } = props;
+                        const match = /language-(\w+)/.exec(className || '');
+
+                        return match ? (
+                            <SyntaxHighlighter {...rest} PreTag='div' language={match[1]} style={atomDark}>
+                                {children}
+                            </SyntaxHighlighter>
+                        ) : (
+                            <code {...rest} className={className}>
+                                {children}
+                            </code>
+                        );
+                    }
+                }}
+            >
+                {post.content}
+            </ReactMarkdown>
         </article>
     );
 };
