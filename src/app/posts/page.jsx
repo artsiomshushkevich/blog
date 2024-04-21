@@ -1,6 +1,11 @@
 import { PostsGrid } from '@/app/components/PostsGrid/PostsGrid';
 import { getAllPosts } from '@/app/utils/posts';
 
+export const metadata = {
+    title: 'All my posts',
+    description: 'List of all my posts and tutorials'
+};
+
 export default function AllPosts() {
     const posts = getAllPosts();
 

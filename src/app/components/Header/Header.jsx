@@ -15,9 +15,6 @@ export const Header = () => {
                     <li>
                         <HeaderLink href='/posts'>Posts</HeaderLink>
                     </li>
-                    <li>
-                        <HeaderLink href='/contact'>Contact</HeaderLink>
-                    </li>
                 </ul>
             </nav>
         </header>
