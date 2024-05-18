@@ -28,7 +28,11 @@ module.exports = async phase => {
         //     : {})
     };
 
-    return {};
+    return {
+        images: { unoptimized: true },
+        basePath: '/blog',
+        output: 'export'
+    };
 };
 
 // /**
