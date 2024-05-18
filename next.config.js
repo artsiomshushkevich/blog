@@ -34,4 +34,4 @@
 /**
  * @type {import('next').NextConfig}
  */
-exports.default = {};
+module.exports = {};
