@@ -8,7 +8,7 @@ export const PostDetails = ({ post }) => {
         <article className='w-full max-w-screen-lg p-10 rounded-lg bg-slate-500'>
             <header className='flex justify-between'>
                 <div>
-                    <h1 className='mb-4 text-4xl font-serif'>{post.title}</h1>
+                    <h1 className='mb-4 font-serif'>{post.title}</h1>
                     <time className='text-sm italic text-gray-100'>{post.date}</time>
                 </div>
 
@@ -19,6 +19,27 @@ export const PostDetails = ({ post }) => {
                 components={{
                     img(props) {
                         return <Image {...props} alt={props.alt} width={300} height={200} />;
+                    },
+                    h1(props) {
+                        return <h1 className='post-h1'>{props.children}</h1>;
+                    },
+                    h2(props) {
+                        return <h2 className='post-h2'>{props.children}</h2>;
+                    },
+                    h3(props) {
+                        return <h3 className='post-h3'>{props.children}</h3>;
+                    },
+                    h4(props) {
+                        return <h4 className='post-h4'>{props.children}</h4>;
+                    },
+                    p(props) {
+                        return <p className='post-p'>{props.children}</p>;
+                    },
+                    ul(props) {
+                        return <ul className='post-ul'>{props.children}</ul>;
+                    },
+                    ol(props) {
+                        return <ol className='post-ol'>{props.children}</ol>;
                     },
                     code(props) {
                         const { children, className, node, ...rest } = props;
