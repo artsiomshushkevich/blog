@@ -8,7 +8,7 @@ export const PostDetails = ({ post }) => {
         <article className='w-full max-w-screen-lg p-10 rounded-lg bg-slate-500'>
             <header className='flex justify-between'>
                 <div>
-                    <h1 className='mb-4 font-serif'>{post.title}</h1>
+                    <h1 className='mb-4 font-slab'>{post.title}</h1>
                     <time className='text-sm italic text-gray-100'>{post.date}</time>
                 </div>
 

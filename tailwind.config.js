@@ -6,6 +6,10 @@ module.exports = {
         './src/app/**/*.{js,ts,jsx,tsx,mdx}'
     ],
     theme: {
+        fontFamily: {
+            roboto: ['var(--font-roboto)', 'sans-serif'],
+            slab: ['var(--font-roboto-slab)', 'serif']
+        },
         spacing: {
             px: '1px',
             0: '0px',

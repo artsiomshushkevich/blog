@@ -9,7 +9,7 @@ export const PostItem = ({ title, date, excerpt, slug, image, postItemHeadingLev
         day: 'numeric'
     });
 
-    const headingClass = 'font-serif font-semibold mt-3 mb-2';
+    const headingClass = 'font-roboto font-bold mt-3 mb-2';
 
     return (
         <li>
