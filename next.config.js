@@ -13,7 +13,16 @@ module.exports = async phase => {
             ? {
                   basePath: BASE_PATH,
                   images: {
-                      path: `${BASE_PATH}/_next/image`
+                      remotePatterns: [
+                          {
+                              protocol: 'https',
+                              hostname: 'artsiomshushkevich.github.io',
+                              port: '',
+                              pathname: '/blog/**'
+                          }
+                      ],
+                      path: `${BASE_PATH}/_next/image`,
+                      unoptimized: true
                   }
               }
             : {})
