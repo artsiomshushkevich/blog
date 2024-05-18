@@ -2,7 +2,7 @@
 
 const { PHASE_PRODUCTION_BUILD } = require('next/constants');
 
-// const BASE_PATH = '/blog';
+const BASE_PATH = '/blog';
 
 module.exports = async phase => {
     /**
@@ -29,10 +29,17 @@ module.exports = async phase => {
     };
     console.log('!!!!!', phase);
     console.log('####', PHASE_PRODUCTION_BUILD === phase);
+    /**
+     * @type {import('next').NextConfig}
+     */
     return {
-        images: { unoptimized: true },
-        basePath: '/blog',
-        output: 'export'
+        ...(phase === PHASE_PRODUCTION_BUILD
+            ? {
+                  images: { unoptimized: true },
+                  basePath: BASE_PATH,
+                  output: 'export'
+              }
+            : {})
     };
 };
 
