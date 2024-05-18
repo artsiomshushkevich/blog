@@ -13,10 +13,7 @@ export const PostItem = ({ title, date, excerpt, slug, image, postItemHeadingLev
 
     return (
         <li>
-            <Link
-                className='flex flex-col overflow-hidden rounded-3xl  bg-slate-600 hover:bg-slate-700 focus:bg-slate-700'
-                href={`/posts/${slug}`}
-            >
+            <Link className='flex flex-col overflow-hidden rounded-3xl shadow-lg' href={`/posts/${slug}`}>
                 <Image
                     className='w-full'
                     src={`/images/posts/${slug}/${image}`}
@@ -32,7 +29,7 @@ export const PostItem = ({ title, date, excerpt, slug, image, postItemHeadingLev
                     ) : (
                         <h3 className={headingClass}>{title}</h3>
                     )}
-                    <time className='text-sm italic text-gray-300'>{formattedDate}</time>
+                    <time className='text-sm itali'>{formattedDate}</time>
                     <p className='mt-2'>{excerpt}</p>
                 </div>
             </Link>

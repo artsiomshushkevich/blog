@@ -5,11 +5,11 @@ import { atomDark } from 'react-syntax-highlighter/dist/esm/styles/prism';
 
 export const PostDetails = ({ post }) => {
     return (
-        <article className='w-full max-w-screen-lg p-10 rounded-lg bg-slate-500'>
+        <article className='w-full max-w-screen-lg p-10 rounded-lg shadow-2xl'>
             <header className='flex justify-between'>
                 <div>
                     <h1 className='mb-4 font-slab'>{post.title}</h1>
-                    <time className='text-sm italic text-gray-100'>{post.date}</time>
+                    <time className='text-sm italic'>{post.date}</time>
                 </div>
 
                 <Image src={`/images/posts/${post.slug}/${post.image}`} alt={post.title} width={300} height={200} />

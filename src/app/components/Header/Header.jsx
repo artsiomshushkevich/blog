@@ -3,8 +3,8 @@ import { HeaderLink } from './HeaderLink';
 
 export const Header = () => {
     return (
-        <header className='flex justify-between items-center py-4 px-10 bg-slate-900 shadow-inner'>
-            <Link className='font-bold font-slab text-2xl text-white' href='/'>
+        <header className='flex justify-between items-center py-4 px-10 shadow-inner'>
+            <Link className='font-bold font-slab text-2xl' href='/'>
                 Artsiom&apos;s blog
             </Link>
             <nav>
