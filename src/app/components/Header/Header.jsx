@@ -1,14 +1,13 @@
 import Link from 'next/link';
 import { HeaderLink } from './HeaderLink';
-import { ThemeBtn } from './ThemeBtn';
 
 export const Header = () => {
     return (
-        <header className='flex justify-between items-center py-4 px-10 shadow-inner'>
-            <Link className='font-bold font-slab text-2xl dark:text-red-700' href='/'>
-                Artsiom&apos;s blog
+        <header className='flex justify-between sticky w-full top-0 items-center py-3 px-6 md:px-10 bg-white dark:bg-slate-800 shadow-md'>
+            <Link className='p-2 rounded-xl font-bold text-xl bg-indigo-600 text-white' href='/'>
+                AS
             </Link>
-            <ThemeBtn />
+
             <nav>
                 <ul className='flex gap-3'>
                     <li>

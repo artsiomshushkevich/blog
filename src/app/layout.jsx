@@ -1,6 +1,8 @@
+import './globals.css';
+
 import { Roboto, Roboto_Slab } from 'next/font/google';
 import { Header } from './components/Header/Header';
-import './globals.css';
+import { Footer } from './components/Footer/Footer';
 import { ThemeProvider } from './components/ThemeProvider/ThemeProvider';
 
 const roboto = Roboto({
@@ -41,7 +43,10 @@ export default function RootLayout({ children }) {
                 ></script>
                 <ThemeProvider>
                     <Header />
-                    {children}
+                    <main className='flex flex-col items-center w-full p-6 md:p-10'>
+                        <div className='max-w-screen-xl'>{children}</div>
+                    </main>
+                    <Footer />
                 </ThemeProvider>
             </body>
         </html>

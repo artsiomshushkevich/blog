@@ -3,6 +3,14 @@
 @tailwind utilities;
 
 @layer base {
+    html {
+        @apply text-slate-900 dark:text-white;
+    }
+
+    body {
+        @apply bg-white dark:bg-slate-800;
+    }
+
     h1 {
         @apply text-4xl;
     }

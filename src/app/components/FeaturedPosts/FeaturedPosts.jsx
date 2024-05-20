@@ -1,5 +1,5 @@
-import { getFeaturedPosts } from '../utils/posts';
-import { PostsGrid } from './PostsGrid/PostsGrid';
+import { getFeaturedPosts } from '../../utils/posts';
+import { PostsGrid } from '../PostsGrid/PostsGrid';
 
 export const FeaturedPosts = () => {
     const posts = getFeaturedPosts();
