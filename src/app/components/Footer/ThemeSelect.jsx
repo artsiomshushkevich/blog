@@ -1,9 +1,10 @@
 'use client';
 import { useEffect, useState } from 'react';
-import { useSetTheme } from '../ThemeProvider/ThemeProvider';
 import { detectTheme } from '@/app/utils/theme';
+import { useSetTheme } from '../ThemeProvider/ThemeProvider';
+import { Select } from '../Select/Select';
 
-export const ThemeSelect = () => {
+export const ThemeSelect = ({ className = '' }) => {
     const [currentTheme, setCurrentTheme] = useState(null);
     const setTheme = useSetTheme();
 
@@ -11,18 +12,34 @@ export const ThemeSelect = () => {
         setCurrentTheme(detectTheme);
     }, []);
 
-    const onChange = e => {
-        const newTheme = e.target.value;
-
+    const onChange = newTheme => {
         setTheme(newTheme === 'system' ? null : newTheme);
         setCurrentTheme(newTheme);
     };
 
+    const options = [
+        {
+            value: 'dark',
+            label: 'Dark'
+        },
+        {
+            value: 'light',
+            label: 'Light'
+        },
+        {
+            value: 'system',
+            label: 'System'
+        }
+    ];
+
     return (
-        <select onChange={onChange} value={currentTheme}>
-            <option value='dark'>Dark</option>
-            <option value='light'>Light</option>
-            <option value='system'>System</option>
-        </select>
+        <Select
+            className={className}
+            id='theme-select'
+            label='Choose theme'
+            value={currentTheme}
+            options={options}
+            onChange={onChange}
+        />
     );
 };
