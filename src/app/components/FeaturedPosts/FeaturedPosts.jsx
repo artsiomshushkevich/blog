@@ -5,7 +5,7 @@ export const FeaturedPosts = () => {
     const posts = getFeaturedPosts();
 
     return (
-        <section className='flex flex-col items-center w-full mt-6 md:mt-10 md:pl-6'>
+        <section className='flex flex-col items-center w-full mt-6 md:mt-10 md:px-6'>
             <h2 className='md:text-4xl font-bold text-center'>Featured posts</h2>
             <PostsGrid className='mt-12' posts={posts} />
         </section>
