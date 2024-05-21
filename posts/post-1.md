@@ -3,7 +3,7 @@ title: 'Post 1'
 date: '2024-04-15'
 image: 'nextjs.png'
 excerpt: 'Descitpion of post long long long long 1'
-isFeatured: false
+isFeatured: true
 ---
 
 ## Post number ONE

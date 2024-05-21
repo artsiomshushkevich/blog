@@ -1,9 +1,12 @@
 import './globals.css';
-
-import { Roboto, Roboto_Slab } from 'next/font/google';
+import '@fortawesome/fontawesome-svg-core/styles.css';
+import { config } from '@fortawesome/fontawesome-svg-core';
+import { Roboto, Roboto_Mono } from 'next/font/google';
 import { Header } from './components/Header/Header';
 import { Footer } from './components/Footer/Footer';
 import { ThemeProvider } from './components/ThemeProvider/ThemeProvider';
+
+config.autoAddCss = false;
 
 const roboto = Roboto({
     subsets: ['latin', 'cyrillic'],
@@ -12,11 +15,11 @@ const roboto = Roboto({
     weight: ['100', '300', '400', '500', '700', '900']
 });
 
-const slab = Roboto_Slab({
+const mono = Roboto_Mono({
     subsets: ['latin', 'cyrillic'],
-    variable: '--font-roboto-slab',
+    variable: '--font-roboto-mono',
     display: 'swap',
-    weight: ['100', '300', '400', '500', '700', '900']
+    weight: ['100', '300', '400', '500', '700']
 });
 
 export const metadata = {
@@ -26,8 +29,8 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
     return (
-        <html lang='en' className={`${roboto.variable} ${slab.variable}`}>
-            <body className={roboto.className}>
+        <html lang='en' className={`${roboto.variable} ${mono.variable}`}>
+            <body className={`${roboto.className} flex flex-col h-screen`}>
                 <script
                     dangerouslySetInnerHTML={{
                         __html: `
@@ -43,8 +46,8 @@ export default function RootLayout({ children }) {
                 ></script>
                 <ThemeProvider>
                     <Header />
-                    <main className='flex flex-col items-center w-full p-6 md:p-10'>
-                        <div className='max-w-screen-xl'>{children}</div>
+                    <main className='flex flex-col items-center flex-grow w-full p-6 md:p-10'>
+                        <div className='w-full max-w-screen-xl'>{children}</div>
                     </main>
                     <Footer />
                 </ThemeProvider>

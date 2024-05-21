@@ -1,11 +1,15 @@
 'use client';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useSetTheme } from '../ThemeProvider/ThemeProvider';
 import { detectTheme } from '@/app/utils/theme';
 
 export const ThemeSelect = () => {
-    const [currentTheme, setCurrentTheme] = useState(detectTheme());
+    const [currentTheme, setCurrentTheme] = useState(null);
     const setTheme = useSetTheme();
+
+    useEffect(() => {
+        setCurrentTheme(detectTheme);
+    }, []);
 
     const onChange = e => {
         const newTheme = e.target.value;

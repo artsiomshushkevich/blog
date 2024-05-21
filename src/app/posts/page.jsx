@@ -11,8 +11,8 @@ export default function AllPosts() {
 
     return (
         <>
-            <h1 className='mt-3 mb-5 font-slab font-bold text-center'>All posts</h1>
-            <PostsGrid className='max-w-screen-xl' posts={posts} postItemHeadingLevel='h2' />
+            <h1 className='text-center'>All posts</h1>
+            <PostsGrid className='mt-12' posts={posts} postItemHeadingLevel='h2' />
         </>
     );
 }

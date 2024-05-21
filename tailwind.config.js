@@ -9,7 +9,7 @@ module.exports = {
     theme: {
         fontFamily: {
             roboto: ['var(--font-roboto)', 'sans-serif'],
-            slab: ['var(--font-roboto-slab)', 'serif']
+            mono: ['var(--font-roboto-mono)', 'serif']
         },
         spacing: {
             px: '1px',

@@ -8,7 +8,7 @@
     }
 
     body {
-        @apply bg-white dark:bg-slate-800;
+        @apply bg-white dark:bg-slate-900;
     }
 
     h1 {
@@ -31,6 +31,12 @@
     div,
     span {
         @apply text-base;
+    }
+
+    *:focus-visible {
+        @apply outline-offset-2;
+        @apply outline-1;
+        @apply outline-indigo-500;
     }
 }
 
