@@ -3,7 +3,7 @@ import Image from 'next/image';
 import ReactMarkdown from 'react-markdown';
 
 export const PostDetails = ({ post }) => {
-    const formattedDate = post.date.toLocaleString('en-US', {
+    const formattedDate = new Date(post.date).toLocaleString('en-US', {
         weekday: 'long',
         year: 'numeric',
         month: 'long',

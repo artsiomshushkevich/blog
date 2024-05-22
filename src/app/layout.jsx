@@ -44,7 +44,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
     return (
         <html lang='en' className={`${roboto.variable} ${mono.variable} ${slab.variable} ${serif.variable}`}>
-            <body className={`${roboto.className} flex flex-col h-screen`}>
+            <body className={`${roboto.className} flex flex-col h-full`}>
                 <script
                     dangerouslySetInnerHTML={{
                         __html: `

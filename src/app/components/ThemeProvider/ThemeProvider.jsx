@@ -10,7 +10,7 @@ export const ThemeProvider = ({ children }) => {
     const isFirstRenderRef = useRef(true);
 
     useEffect(() => {
-        if (isFirstRenderRef.current && localStorage.getItem('theme')) {
+        if (isFirstRenderRef.current) {
             const isSystemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
 
             if (localStorage.getItem('theme')) {
@@ -22,29 +22,31 @@ export const ThemeProvider = ({ children }) => {
     }, []);
 
     useEffect(() => {
-        if (!isFirstRenderRef.current) {
-            const isSystemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-
-            if (localStorage.theme === 'dark' || (!localStorage.getItem('theme') && isSystemDark)) {
-                document.documentElement.classList.add('dark');
-            } else {
-                document.documentElement.classList.remove('dark');
-            }
-        }
-    }, [currentTheme]);
-
-    useEffect(() => {
         isFirstRenderRef.current = false;
     }, []);
 
     const setTheme = useCallback(theme => {
         if (theme === 'system') {
-            localStorage.removeItem('theme');
-        } else {
-            localStorage.setItem('theme', theme);
-        }
+            const isSystemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
 
-        setCurrentTheme(theme);
+            if (isSystemDark) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+
+            localStorage.removeItem('theme');
+            setCurrentTheme(isSystemDark ? 'dark' : 'light');
+        } else {
+            if (theme === 'dark') {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+
+            localStorage.setItem('theme', theme);
+            setCurrentTheme(theme);
+        }
     }, []);
 
     return <ThemeContext.Provider value={[currentTheme, setTheme]}>{children}</ThemeContext.Provider>;
