@@ -1,8 +1,12 @@
 'use client';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
-export const Select = ({ className = '', id, label, value, onChange, options }) => {
-    const [currentValue, setCurrentValue] = useState(value || null);
+export const Select = ({ className = '', id, label, value = '', onChange, options }) => {
+    const [currentValue, setCurrentValue] = useState(value);
+
+    useEffect(() => {
+        setCurrentValue(value);
+    }, [value]);
 
     const handleChange = e => {
         const newValue = e.target.value;
@@ -13,7 +17,7 @@ export const Select = ({ className = '', id, label, value, onChange, options }) 
 
     return (
         <div className={className}>
-            <label class='block text-white' htmlFor={id}>
+            <label className='block text-white' htmlFor={id}>
                 {label}
             </label>
             <select

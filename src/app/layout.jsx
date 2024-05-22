@@ -1,7 +1,7 @@
 import './globals.css';
 import '@fortawesome/fontawesome-svg-core/styles.css';
 import { config } from '@fortawesome/fontawesome-svg-core';
-import { Roboto, Roboto_Mono } from 'next/font/google';
+import { Roboto, Roboto_Mono, Roboto_Slab, Roboto_Serif } from 'next/font/google';
 import { Header } from './components/Header/Header';
 import { Footer } from './components/Footer/Footer';
 import { ThemeProvider } from './components/ThemeProvider/ThemeProvider';
@@ -22,6 +22,20 @@ const mono = Roboto_Mono({
     weight: ['100', '300', '400', '500', '700']
 });
 
+const slab = Roboto_Slab({
+    subsets: ['latin', 'cyrillic'],
+    variable: '--font-roboto-slab',
+    display: 'swap',
+    weight: ['700']
+});
+
+const serif = Roboto_Serif({
+    subsets: ['latin', 'cyrillic'],
+    variable: '--font-roboto-serif',
+    display: 'swap',
+    weight: ['100', '300', '400', '500', '700']
+});
+
 export const metadata = {
     title: "Artsiom Shushkevich's blog",
     description: 'Personal blog'
@@ -29,7 +43,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
     return (
-        <html lang='en' className={`${roboto.variable} ${mono.variable}`}>
+        <html lang='en' className={`${roboto.variable} ${mono.variable} ${slab.variable} ${serif.variable}`}>
             <body className={`${roboto.className} flex flex-col h-screen`}>
                 <script
                     dangerouslySetInnerHTML={{
@@ -47,7 +61,7 @@ export default function RootLayout({ children }) {
                 <ThemeProvider>
                     <Header />
                     <main className='flex flex-col items-center flex-grow w-full p-6 md:p-10'>
-                        <div className='w-full max-w-screen-xl'>{children}</div>
+                        <div className='flex flex-col items-center w-full max-w-screen-xl'>{children}</div>
                     </main>
                     <Footer />
                 </ThemeProvider>

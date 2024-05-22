@@ -41,18 +41,26 @@
 }
 
 @layer components {
-    .post-h1 {
-        @apply font-bold mb-4;
+    .post-h1,
+    .post-h2,
+    .post-h3,
+    .post-4,
+    .post-p,
+    .post-ul,
+    .post-ol,
+    .post-a {
+        @apply font-serif;
     }
 
+    .post-h1,
     .post-h2,
     .post-h3,
     .post-h4 {
-        @apply font-bold mb-2;
+        @apply font-[500] mb-2;
     }
 
     .post-p {
-        @apply mb-1;
+        @apply mb-2;
     }
 
     .post-ul,
@@ -66,5 +74,9 @@
 
     .post-ol {
         list-style-type: disc;
+    }
+
+    .post-a {
+        @apply text-indigo-700 dark:text-indigo-300 hover:underline;
     }
 }

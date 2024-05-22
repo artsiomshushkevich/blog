@@ -5,15 +5,15 @@ import { useSetTheme } from '../ThemeProvider/ThemeProvider';
 import { Select } from '../Select/Select';
 
 export const ThemeSelect = ({ className = '' }) => {
-    const [currentTheme, setCurrentTheme] = useState(null);
-    const setTheme = useSetTheme();
+    const [currentTheme, setCurrentTheme] = useState('');
+    const [, setTheme] = useSetTheme();
 
     useEffect(() => {
-        setCurrentTheme(detectTheme);
+        setCurrentTheme(detectTheme());
     }, []);
 
     const onChange = newTheme => {
-        setTheme(newTheme === 'system' ? null : newTheme);
+        setTheme(newTheme);
         setCurrentTheme(newTheme);
     };
 

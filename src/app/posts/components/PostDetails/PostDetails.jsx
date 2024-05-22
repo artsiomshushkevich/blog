@@ -1,24 +1,28 @@
+import { CodeSnipet } from '@/app/components/CodeSnipet/CodeSnipet';
 import Image from 'next/image';
 import ReactMarkdown from 'react-markdown';
-import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
-import { atomDark } from 'react-syntax-highlighter/dist/esm/styles/prism';
 
 export const PostDetails = ({ post }) => {
-    return (
-        <article className='w-full max-w-screen-lg p-10 rounded-lg shadow-2xl'>
-            <header className='flex justify-between'>
-                <div>
-                    <h1 className='mb-4'>{post.title}</h1>
-                    <time className='text-sm italic'>{post.date}</time>
-                </div>
+    const formattedDate = post.date.toLocaleString('en-US', {
+        weekday: 'long',
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+    });
 
-                <Image src={`/images/posts/${post.slug}/${post.image}`} alt={post.title} width={300} height={200} />
+    return (
+        <article className='w-full max-w-screen-lg'>
+            <header className='mb-4 pb-2 border-b border-slate-500 dark:border-slate-500'>
+                <h1 className='mb-2 font-slab font-bold'>{post.title}</h1>
+                <p className='text-sm font-semibold text-slate-500 dark:text-slate-400'>
+                    Published on <time>{formattedDate}</time>
+                </p>
             </header>
             <ReactMarkdown
                 urlTransform={url => (url.startsWith('http') ? url : `/images/posts/${post.slug}/${url}`)}
                 components={{
                     img(props) {
-                        return <Image {...props} alt={props.alt} width={300} height={200} />;
+                        return <Image {...props} alt={props.alt} width={400} height={400} className='my-8 mx-auto' />;
                     },
                     h1(props) {
                         return <h1 className='post-h1'>{props.children}</h1>;
@@ -41,19 +45,15 @@ export const PostDetails = ({ post }) => {
                     ol(props) {
                         return <ol className='post-ol'>{props.children}</ol>;
                     },
-                    code(props) {
-                        const { children, className, node, ...rest } = props;
-                        const match = /language-(\w+)/.exec(className || '');
-
-                        return match ? (
-                            <SyntaxHighlighter {...rest} PreTag='div' language={match[1]} style={atomDark}>
-                                {children}
-                            </SyntaxHighlighter>
-                        ) : (
-                            <code {...rest} className={className}>
-                                {children}
-                            </code>
+                    a(props) {
+                        return (
+                            <a {...props} className='post-a'>
+                                {props.children}
+                            </a>
                         );
+                    },
+                    code(props) {
+                        return <CodeSnipet {...props} />;
                     }
                 }}
             >
