@@ -9,36 +9,36 @@ import { ThemeProvider } from './components/ThemeProvider/ThemeProvider';
 config.autoAddCss = false;
 
 const roboto = Roboto({
-    subsets: ['latin', 'cyrillic'],
+    subsets: ['latin'],
     variable: '--font-roboto',
     display: 'swap',
     weight: ['100', '300', '400', '500', '700', '900']
 });
 
 const mono = Roboto_Mono({
-    subsets: ['latin', 'cyrillic'],
+    subsets: ['latin'],
     variable: '--font-roboto-mono',
     display: 'swap',
     weight: ['100', '300', '400', '500', '700']
 });
 
 const slab = Roboto_Slab({
-    subsets: ['latin', 'cyrillic'],
+    subsets: ['latin'],
     variable: '--font-roboto-slab',
     display: 'swap',
     weight: ['700']
 });
 
 const serif = Roboto_Serif({
-    subsets: ['latin', 'cyrillic'],
+    subsets: ['latin'],
     variable: '--font-roboto-serif',
     display: 'swap',
     weight: ['100', '300', '400', '500', '700']
 });
 
 export const metadata = {
-    title: "Artsiom Shushkevich's blog",
-    description: 'Personal blog'
+    title: 'Artsiom Shushkevich',
+    description: 'Artsiom Shushkevich personal blog'
 };
 
 export default function RootLayout({ children }) {
