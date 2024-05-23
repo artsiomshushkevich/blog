@@ -6,8 +6,8 @@ export const metadata = {
     description: 'List of all my posts and tutorials'
 };
 
-export default function AllPosts() {
-    const posts = getAllPosts();
+export default async function AllPosts() {
+    const posts = await getAllPosts();
 
     return (
         <>

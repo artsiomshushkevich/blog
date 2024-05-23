@@ -1,8 +1,8 @@
 import { getFeaturedPosts } from '../../utils/posts';
 import { PostsGrid } from '../PostsGrid/PostsGrid';
 
-export const FeaturedPosts = () => {
-    const posts = getFeaturedPosts();
+export const FeaturedPosts = async () => {
+    const posts = await getFeaturedPosts();
 
     return (
         <section className='flex flex-col items-center w-full mt-6 md:mt-10 md:px-6'>

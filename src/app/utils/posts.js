@@ -1,11 +1,11 @@
-import fs from 'fs';
+import { promises as fs } from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
 
 const postsDir = path.resolve(process.cwd(), 'posts');
 
-export const getFileContent = fileName => {
-    const fileContent = fs.readFileSync(path.join(postsDir, fileName), 'utf-8');
+export const getFileContent = async fileName => {
+    const fileContent = await fs.readFile(path.join(postsDir, fileName), 'utf-8');
 
     const { data, content } = matter(fileContent);
 
@@ -16,14 +16,20 @@ export const getFileContent = fileName => {
     };
 };
 
-export const getAllPosts = () => {
-    const fileNames = fs.readdirSync(postsDir);
+export const getAllPosts = async () => {
+    const fileNames = await fs.readdir(postsDir);
 
-    return fileNames.map(fileName => getFileContent(fileName)).sort((a, b) => (a.date > b.date ? -1 : 1));
+    const files = await Promise.all(fileNames.map(fileName => getFileContent(fileName)));
+
+    return files.sort((a, b) => (a.date > b.date ? -1 : 1));
 };
 
-export const getFeaturedPosts = () => getAllPosts().filter(post => post.isFeatured);
+export const getFeaturedPosts = async () => {
+    const posts = await getAllPosts();
 
-export const getPostBySlug = slug => {
-    return getFileContent(`${slug}.md`);
+    return posts.filter(post => post.isFeatured);
+};
+
+export const getPostBySlug = async slug => {
+    return await getFileContent(`${slug}.md`);
 };

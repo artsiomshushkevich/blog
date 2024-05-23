@@ -1,10 +1,10 @@
 import { getAllPosts, getPostBySlug } from '@/app/utils/posts';
 import { PostDetails } from '../components/PostDetails/PostDetails';
 
-export const generateMetadata = ({ params }) => {
+export const generateMetadata = async ({ params }) => {
     const { slug } = params;
 
-    const post = getPostBySlug(slug);
+    const post = await getPostBySlug(slug);
 
     return {
         title: post.title,
@@ -12,18 +12,18 @@ export const generateMetadata = ({ params }) => {
     };
 };
 
-export const generateStaticParams = () => {
-    const posts = getAllPosts();
+export const generateStaticParams = async () => {
+    const posts = await getAllPosts();
 
     return posts.map(post => ({
         slug: post.slug
     }));
 };
 
-export default function SpecificPostPage({ params }) {
+export default async function SpecificPostPage({ params }) {
     const { slug } = params;
 
-    const post = getPostBySlug(slug);
+    const post = await getPostBySlug(slug);
 
     return <PostDetails post={post} />;
 }
