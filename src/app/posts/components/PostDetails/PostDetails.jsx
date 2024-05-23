@@ -47,7 +47,7 @@ export const PostDetails = ({ post }) => {
                     },
                     a(props) {
                         return (
-                            <a {...props} className='post-a'>
+                            <a className='post-a font-[500]' href={props.href}>
                                 {props.children}
                             </a>
                         );
