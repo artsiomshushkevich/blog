@@ -61,7 +61,7 @@ export default function RootLayout({ children }) {
                 <ThemeProvider>
                     <Header />
                     <main className='flex flex-col items-center flex-grow w-full p-6 md:p-10'>
-                        <div className='flex flex-col items-center w-full max-w-screen-xl'>{children}</div>
+                        <div className='flex flex-col items-center w-full h-full max-w-screen-xl'>{children}</div>
                     </main>
                     <Footer />
                 </ThemeProvider>
